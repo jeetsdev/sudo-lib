@@ -1,0 +1,122 @@
+.video__card {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 400px;
+}
+
+.video__card-img {
+    transition: transform .4s ease-in-out;
+}
+
+
+.video__card-img:hover {
+    transform: scale(1.01);
+}
+
+/*! Card data section */
+.video__card-data {
+    position: relative;
+    height: 100%;
+    background-color: var(--text-sec);
+}
+
+/*! Card data upper section */
+.card__data-upper {
+    background-color: var(--background-secondary-color);
+    height: 4rem;
+    justify-content: initial;
+}
+
+/* avatra image  */
+.data__upper-avatar {
+    background-color: var(--text-color);
+    padding: 1px;
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: .5rem;
+
+}
+
+.data__upper-avatar img {
+    height: 2.5rem;
+    border-radius: 50%;
+    width: 2.5rem;
+}
+
+/* Title style here */
+.data-upper-title p {
+    font-size: .8em;
+    margin: .5rem;
+    font-weight: 900;
+}
+
+/* Menu style */
+.card__data-menu {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: .5rem;
+    position: relative;
+    transition: all .4s ease-in-out;
+    padding: .3rem;
+    border-radius: 50%
+}
+
+.upper__title-menu {
+    font-size: 1.5rem;
+}
+
+/* Overlay section */
+.card__data-overlay {
+    z-index: 9;
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    right: 2rem;
+    bottom: 0;
+}
+
+.card__data-overlay>* {
+    box-shadow: 1px 1px 10px 2px var(--background-color);
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    padding: .5rem;
+    font-size: 2.5rem;
+    transition: transform .4s ease-in-out;
+}
+
+/* Show and hide menu style */
+.showMenu {
+    transform: translate(500px);
+}
+
+.hideMenu {
+    transform: translate(0px);
+}
+
+.card__data-overlay>*:hover {
+    transform: rotate(360deg);
+    background-color: var(--primary-color);
+}
+
+/* Card data mid section here */
+.card__data-mid {
+    font-weight: 900;
+    margin: .5rem;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.icon-primary {
+    color: var(--primary-color);
+}
+
+/* Card data lower description section */
+.card__data-lower {
+    opacity: 0.8;
+    line-height: 1.5rem;
+    font-size: .8rem;
+    margin: .5rem;
+}

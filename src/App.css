@@ -1,51 +1,85 @@
-.App {
-  text-align: center;
+@import url("https://sudo-ui.netlify.app/components/components.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --primary-color: #d44d5c;
+    --color-pri: #d44d5c;
+    --secondary-color: #773344;
+    --background-color: #0b0014;
+    --background-secondary-color: #355065;
+    --text-color: #F5E9E2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+Link {
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+/* React icons style */
+.icons {
+    color: var(--color-pri);
 }
 
-.App-link {
-  color: #61dafb;
+/*! Common style overriding here */
+.btns {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.image__res {
+    min-height: 100%;
 }
 
-.brand-title span {
-  color: #ffde59;
+/*! Header style here  */
+.nav {
+    min-height: 5rem;
+    height: 10vh;
+    position: sticky;
+    z-index: 9;
+    background-color: var(--background-color);
+    top: 0;
 }
 
-.brand-description {
-  font-size: 1.4rem;
+.nav .nav__title-sec {
+    margin-right: initial;
 }
 
-.links {
-  display: flex;
+.nav .nav__search-sec form {
+    border: 2px solid var(--primary-color);
+    /* border-color: var(--primary-color); */
+    border-radius: 1rem;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.nav .nav__search-sec input {
+    color: var(--text-color);
+    padding: 0.5rem;
 }
+
+.nav .nav__button-sec {
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+}
+
+/*! Hover effect : Gonna work on it later on  */
+
+/* .btn__flow .btn__flow-icon,
+.btn__flow .btn__flow-text {
+    transition: transform .4s ease-in-out;
+
+}
+
+.btn__flow button:hover>.btn__flow-text {
+    transform-origin: left;
+    transform: translateX(-1.5rem);
+}
+
+.btn__flow button:hover>.btn__flow-icon {
+    transform-origin: left;
+    transform: translateX(3rem);
+
+} */
