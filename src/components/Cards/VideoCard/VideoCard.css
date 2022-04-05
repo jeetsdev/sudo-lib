@@ -70,7 +70,7 @@
 
 /* Overlay section */
 .card__data-overlay {
-    z-index: 9;
+    z-index: 2;
     display: flex;
     gap: 5px;
     position: absolute;
