@@ -1,2 +1,3 @@
-export { VideoProvider } from "./video-context";
-export { useVideo } from "./video-context";
+export { RequireAuth } from "../components/RequireAuth/RequireAuth";
+export { VideoProvider, useVideo } from "./video-context";
+export { AuthProvider, useAuth } from "./auth-context";
