@@ -1,5 +1,5 @@
 import { Categories, Sidebar, VideoCard } from "../../components"
-import { useAuth, useVideo } from "../../contexts"
+import { useVideo } from "../../contexts"
 import "./Explore.css"
 
 export const Explore = () => {
