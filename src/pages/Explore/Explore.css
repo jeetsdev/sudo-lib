@@ -21,8 +21,8 @@
 }
 
 .sidebar__link {
-    border-radius: 20px;
-    background: var(--text-sec);
+    cursor: pointer;
+    border-radius: 5px;
     padding: .5rem 1rem;
     justify-content: flex-start;
 }

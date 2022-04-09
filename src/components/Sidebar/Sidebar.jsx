@@ -1,7 +1,8 @@
 import { AiFillHome, AiFillClockCircle, AiOutlineHistory, AiOutlineLogout } from 'react-icons/ai'
 import { MdExplore, MdVideoLibrary } from 'react-icons/md'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../contexts'
 
 // Active link style here
 const activeStyle = (isActive) => {
@@ -10,37 +11,37 @@ const activeStyle = (isActive) => {
     }
 }
 
+// Compoent for Sidebar links
+const SideNavLink = ({ route, name, icon }) => {
+    return <NavLink to={`/${route}`} className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
+        {icon}
+        {name}
+    </NavLink>
+}
+
 export const Sidebar = () => {
+    const { authToken, signOutHandler } = useAuth();
+    const navigate = useNavigate();
+
     return (
         <div className="explore__sidebar">
-            <NavLink to="/" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <AiFillHome className='margin__lr-4px' />
-                Home
-            </NavLink>
-            <NavLink to="/explore" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <MdExplore />
-                Explore
-            </NavLink>
-            <NavLink to="/playlist" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <MdVideoLibrary />
-                Playlist
-            </NavLink>
-            <NavLink to="/likes" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <BsFillHandThumbsUpFill />
-                Likes
-            </NavLink>
-            <NavLink to="/watchlater" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <AiFillClockCircle />
-                Watch Later
-            </NavLink>
-            <NavLink to="/history" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <AiOutlineHistory />
-                History
-            </NavLink>
-            <NavLink to="/logout" className="sidebar__link center__flex" style={({ isActive }) => activeStyle(isActive)}>
-                <AiOutlineLogout />
-                Logout
-            </NavLink>
+            <SideNavLink route={"name"} icon={<AiFillHome />} name={"Home"} />
+            <SideNavLink route={"explore"} icon={<MdExplore />} name={"Explore"} />
+            <SideNavLink route={"playlist"} icon={<MdVideoLibrary />} name={"Playlist"} />
+            <SideNavLink route={"likes"} icon={<BsFillHandThumbsUpFill />} name={"Likes"} />
+            <SideNavLink route={"watchlater"} icon={<AiFillClockCircle />} name={"Watch Later"} />
+            <SideNavLink route={"history"} icon={<AiOutlineHistory />} name={"History"} />
+
+            {/* Checking for auth here */}
+            {authToken ?
+                <div className="sidebar__link center__flex" onClick={() => signOutHandler()} >
+                    <AiOutlineLogout />
+                    Logout
+                </div> :
+                <div className="sidebar__link center__flex" onClick={() => navigate("/login")} >
+                    <AiOutlineLogout />
+                    Login
+                </div>}
         </div>
     )
 }
