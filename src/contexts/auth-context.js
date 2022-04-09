@@ -78,6 +78,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    // Sign up form handler here
     const signUpFormHandler = async (signupFormData) => {
         if (
             validateEmailAndPass(signupFormData.email, signupFormData.password)
@@ -85,7 +86,6 @@ export const AuthProvider = ({ children }) => {
             setError({ passwordError: "", emailError: `` });
             try {
                 let res = await axios.post("/api/auth/signup", signupFormData);
-                console.log("res: ", res);
                 const {
                     status,
                     data: {
