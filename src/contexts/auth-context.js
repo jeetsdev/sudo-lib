@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
                     }
                     setUserName(userName);
                     setAuthToken(encodedToken);
-                    navigate("/");
+                    navigate("/", { replace: true });
                     toast.success(`Welcome back ${userName}`);
                 }
             } catch (error) {
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
                     setUserName(userName);
                     localStorage.setItem("encoded-token", encodedToken);
                     localStorage.setItem("name", userName);
-                    navigate("/");
+                    navigate("/", { replace: true });
                     toast.success(`Welcome ${userName}`);
                 }
             } catch (error) {
