@@ -1,16 +1,18 @@
 /* Container style here */
-.container__explore {
+.container__main {
     position: relative;
     display: flex;
     margin-bottom: 1rem;
 }
 
-/* Sidebar style here  */
+/*! Sidebar style here  */
 
-.explore__sidebar {
+.sidebar__menu {
     position: fixed;
     background-color: var(--background-color);
     z-index: 8;
+    left: 0;
+    height: 100%;
     top: 5rem;
     padding-top: .5rem;
     padding-left: 1rem;
@@ -32,7 +34,8 @@
 }
 
 /* Videos listing  section style here  */
-.explore__video {
+.video__sec {
+    padding: 0 1rem;
     margin-left: 220px;
     flex-grow: 1;
 }
@@ -42,7 +45,6 @@
     background-color: var(--background-color);
     z-index: 8;
     top: 5rem;
-    margin: 0 1rem;
     margin-bottom: 1rem;
     border-top: 2px solid var(--text-sec);
     border-bottom: 2px solid var(--text-sec);
@@ -58,8 +60,7 @@
     background-color: var(--primary-color);
 }
 
-.video__list {
-    margin: 0 1rem;
+.video__list-sec {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;

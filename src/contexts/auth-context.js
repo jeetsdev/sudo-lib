@@ -10,9 +10,10 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     // Constants here
     const token = localStorage.getItem("encoded-token");
-    const name = localStorage.getItem("name");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
     const [authToken, setAuthToken] = useState(token);
-    const [userName, setUserName] = useState(name);
+    const [userName, setUserName] = useState(userData?.userName);
     const navigate = useNavigate();
     const [error, setError] = useState({
         emailError: "",
@@ -42,24 +43,25 @@ export const AuthProvider = ({ children }) => {
             setError({ passwordError: "", emailError: `` });
             try {
                 let res = await axios.post("/api/auth/login", loginFormData);
+
                 const {
                     status,
-                    data: {
-                        encodedToken,
-                        foundUser: { userName },
-                    },
+                    data: { encodedToken, foundUser },
                 } = res;
 
                 if (status === 200) {
                     // If remember me is true then remember
                     if (rememberMe) {
                         localStorage.setItem("encoded-token", encodedToken);
-                        localStorage.setItem("name", userName);
+                        localStorage.setItem(
+                            "userData",
+                            JSON.stringify(foundUser)
+                        );
                     }
-                    setUserName(userName);
+                    setUserName(foundUser?.userName);
                     setAuthToken(encodedToken);
                     navigate("/", { replace: true });
-                    toast.success(`Welcome back ${userName}`);
+                    toast.success(`Welcome back ${foundUser?.userName}`);
                 }
             } catch (error) {
                 const { status, statusText } = error.response;
@@ -86,24 +88,25 @@ export const AuthProvider = ({ children }) => {
             setError({ passwordError: "", emailError: `` });
             try {
                 let res = await axios.post("/api/auth/signup", signupFormData);
+
                 const {
                     status,
-                    data: {
-                        encodedToken,
-                        createdUser: { userName },
-                    },
+                    data: { encodedToken, createdUser },
                 } = res;
 
                 if (status === 201) {
                     setAuthToken(encodedToken);
-                    setUserName(userName);
+                    setUserName(createdUser?.userName);
                     localStorage.setItem("encoded-token", encodedToken);
-                    localStorage.setItem("name", userName);
+                    localStorage.setItem(
+                        "userData",
+                        JSON.stringify(createdUser)
+                    );
                     navigate("/", { replace: true });
-                    toast.success(`Welcome ${userName}`);
+                    toast.success(`Welcome ${createdUser?.userName}`);
                 }
             } catch (error) {
-                console.error(error.message);
+                console.error(error);
             }
         }
     };
@@ -115,7 +118,7 @@ export const AuthProvider = ({ children }) => {
         toast.success("Sign out successfull");
         navigate("/explore");
         localStorage.removeItem("encoded-token");
-        localStorage.removeItem("name");
+        localStorage.removeItem("userData");
     };
 
     return (
@@ -124,6 +127,7 @@ export const AuthProvider = ({ children }) => {
                 authToken,
                 setAuthToken,
                 userName,
+                userData,
                 error,
                 setError,
                 loginFormHandler,

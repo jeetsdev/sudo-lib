@@ -1,16 +1,16 @@
-import "./VideoCard.css"
+// import "./VideoCard.css"
 import { HiDotsVertical } from "react-icons/hi"
-import { BsFillHandThumbsUpFill, BsFillEyeFill, BsCheckCircleFill } from "react-icons/bs"
+import { BsFillEyeFill, BsCheckCircleFill } from "react-icons/bs"
 import { AiFillClockCircle } from "react-icons/ai"
-import { MdPlaylistAdd } from "react-icons/md"
+import { MdPlaylistAdd, MdRemoveCircle } from "react-icons/md"
 import { useState } from "react"
 import { useLike } from "../../../contexts"
 
-export const VideoCard = ({ video }) => {
+export const LikesCard = ({ video }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
 
-    const { addToLike } = useLike();
+    const { removeFromLike } = useLike();
 
     // Shorting title and description here
     const shortDescr = description.split(" ").slice(0, 20).join(" ");
@@ -51,7 +51,7 @@ export const VideoCard = ({ video }) => {
                         <div className={`card__data-overlay ${toolTip}`}>
 
                             {/* Menu icon here */}
-                            <BsFillHandThumbsUpFill className="card__btn-like center__flex" onClick={() => addToLike(video)} />
+                            <MdRemoveCircle className="center__flex" onClick={() => removeFromLike(video)} />
                             <AiFillClockCircle className="center__flex" />
                             <MdPlaylistAdd className="center__flex" />
                         </div>
