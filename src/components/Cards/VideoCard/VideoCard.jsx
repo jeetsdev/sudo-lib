@@ -4,13 +4,17 @@ import { BsFillHandThumbsUpFill, BsFillEyeFill, BsCheckCircleFill } from "react-
 import { AiFillClockCircle } from "react-icons/ai"
 import { MdPlaylistAdd } from "react-icons/md"
 import { useState } from "react"
-import { useLike } from "../../../contexts"
+import { useLike, useAuth } from "../../../contexts"
+import { useNavigate } from "react-router-dom"
+
 
 export const VideoCard = ({ video }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
 
     const { addToLike } = useLike();
+    const { authToken } = useAuth();
+    const navigate = useNavigate();
 
     // Shorting title and description here
     const shortDescr = description.split(" ").slice(0, 20).join(" ");
@@ -51,7 +55,7 @@ export const VideoCard = ({ video }) => {
                         <div className={`card__data-overlay ${toolTip}`}>
 
                             {/* Menu icon here */}
-                            <BsFillHandThumbsUpFill className="card__btn-like center__flex" onClick={() => addToLike(video)} />
+                            <BsFillHandThumbsUpFill className="card__btn-like center__flex" onClick={() => authToken ? addToLike(video) : navigate("/login", { replace: true })} />
                             <AiFillClockCircle className="center__flex" />
                             <MdPlaylistAdd className="center__flex" />
                         </div>
