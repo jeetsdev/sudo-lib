@@ -24,7 +24,7 @@ export const Sidebar = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="explore__sidebar">
+        <div className="sidebar__menu">
             <SideNavLink route={"name"} icon={<AiFillHome />} name={"Home"} />
             <SideNavLink route={"explore"} icon={<MdExplore />} name={"Explore"} />
             <SideNavLink route={"playlist"} icon={<MdVideoLibrary />} name={"Playlist"} />
