@@ -5,16 +5,13 @@ import { AiFillClockCircle } from "react-icons/ai"
 import { MdPlaylistAdd, MdRemoveCircle } from "react-icons/md"
 import { useState } from "react"
 import { useLike } from "../../../contexts"
+import { shortString } from "../../../utils"
 
 export const LikesCard = ({ video }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
 
     const { removeFromLike } = useLike();
-
-    // Shorting title and description here
-    const shortDescr = description.split(" ").slice(0, 20).join(" ");
-    const shortTitle = title.split(" ").slice(0, 8).join(" ");
 
     // overlay menu here
     const [toolTip, setToolTip] = useState("showMenu");
@@ -40,7 +37,7 @@ export const LikesCard = ({ video }) => {
                     {/* Title here */}
                     <div className="data-upper-title center__flex">
                         <p>
-                            {shortTitle}
+                            {shortString(title, 8)}
                             {title.split(" ").length > 8 ? <span>...</span> : <span></span>}
                         </p>
                     </div>
@@ -73,7 +70,7 @@ export const LikesCard = ({ video }) => {
                 {/* Card description here */}
                 <div className="card__data-lower">
                     <div className="data__lower-descr">
-                        <p className="txt-mid">{shortDescr}...</p>
+                        <p className="txt-mid">{shortString(description, 20)}...</p>
                     </div>
                 </div>
             </div>
