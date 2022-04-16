@@ -2,6 +2,7 @@
 	background-color: var(--color-grey);
 	position: relative;
 	border-radius: 5px;
+	overflow: hidden;
 }
 
 /* Playlist tumbnail style */
