@@ -1,11 +1,15 @@
 import React from "react";
-// import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-import { AuthProvider, LikeProvider, VideoProvider } from "./contexts";
+import {
+	AuthProvider,
+	LikeProvider,
+	PlaylistProvider,
+	VideoProvider,
+} from "./contexts";
 
 // Call make Server
 makeServer();
@@ -14,15 +18,17 @@ makeServer();
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-    <React.StrictMode>
-        <Router>
-            <AuthProvider>
-                <LikeProvider>
-                    <VideoProvider>
-                        <App />
-                    </VideoProvider>
-                </LikeProvider>
-            </AuthProvider>
-        </Router>
-    </React.StrictMode>
+	<React.StrictMode>
+		<Router>
+			<AuthProvider>
+				<PlaylistProvider>
+					<LikeProvider>
+						<VideoProvider>
+							<App />
+						</VideoProvider>
+					</LikeProvider>
+				</PlaylistProvider>
+			</AuthProvider>
+		</Router>
+	</React.StrictMode>,
 );

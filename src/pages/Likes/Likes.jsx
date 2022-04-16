@@ -1,14 +1,17 @@
-import { Sidebar, LikesCard } from "../../components"
-import { useLike } from "../../contexts"
+import { Sidebar, LikesCard, PlaylistModal } from "../../components"
+import { useLike, usePlaylist } from "../../contexts"
 import { Link } from "react-router-dom"
 import { BsArrowRightCircleFill } from "react-icons/bs"
 import "./Likes.css"
 export const Likes = () => {
 
     const { likedState: { likedVideos } } = useLike();
+    const { playlistState: { modalFlag } } = usePlaylist();
+
 
     return (
         <div className="container__main container__likes">
+            {modalFlag && <PlaylistModal showPlaylistFlag={true}/>}
             <Sidebar />
             <div className="video__sec likes__sec">
                 {likedVideos.length === 0 ?

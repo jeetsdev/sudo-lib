@@ -71,7 +71,7 @@ export const LikeProvider = ({ children }) => {
 	// Remove from likes videos handler
 	const removeFromLike = async (video) => {
 		try {
-			const res = await axios.delete(`api/user/likes/${video._id}`, {
+			const res = await axios.delete(`/api/user/likes/${video._id}`, {
 				headers: {
 					authorization: authToken,
 				},

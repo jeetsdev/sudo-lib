@@ -1,23 +1,15 @@
-// import "./VideoCard.css"
 import { HiDotsVertical } from "react-icons/hi"
 import { BsFillEyeFill, BsCheckCircleFill } from "react-icons/bs"
-import { AiFillClockCircle } from "react-icons/ai"
-import { MdPlaylistAdd, MdDelete } from "react-icons/md"
+import { MdDelete } from "react-icons/md"
 import { useState } from "react"
-import { useAuth, useLike, usePlaylist } from "../../../contexts"
+import { usePlaylist } from "../../../contexts"
 import { shortString } from "../../../utils"
-import { ACTION_TYPE } from "../../../reducers"
-import { useNavigate } from "react-router-dom"
 
 
-export const LikesCard = ({ video }) => {
+export const SinglePlaylistCard = ({ video, playlistID }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
-    const { SHOW_MODAL } = ACTION_TYPE;
-    const { removeFromLike } = useLike();
-    const { playlistDispatch } = usePlaylist();
-    const { authToken } = useAuth();
-    const navigate = useNavigate();
+    const { removeFromPlaylist } = usePlaylist();
 
 
     // overlay menu here
@@ -53,11 +45,8 @@ export const LikesCard = ({ video }) => {
                     <div className="card__data-menu" onClick={menuClickHandler} >
                         <HiDotsVertical className="upper__title-menu" />
                         <div className={`card__data-overlay ${toolTip}`}>
-
                             {/* Menu icon here */}
-                            <MdDelete className="center__flex" onClick={() => removeFromLike(video)} />
-                            <AiFillClockCircle className="center__flex" />
-                            <MdPlaylistAdd className="center__flex" onClick={() => authToken ? playlistDispatch({ type: SHOW_MODAL, payload: video }) : navigate("/login", { replace: true })} />
+                            <MdDelete className="center__flex" onClick={() => removeFromPlaylist(video, playlistID)} />
                         </div>
                     </div>
                 </div>
