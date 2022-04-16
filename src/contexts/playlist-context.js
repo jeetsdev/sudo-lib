@@ -152,10 +152,6 @@ export const PlaylistProvider = ({ children }) => {
 
 	// Remove from playlist handler here
 	const removeFromPlaylist = (video, currentPlaylistID) => {
-		console.log("authToken", authToken);
-		console.log("In remove from playlist");
-		console.log("currentPlaylistID: ", currentPlaylistID);
-		console.log("video: ", video);
 		if (authToken) {
 			(async () => {
 				try {
@@ -172,7 +168,6 @@ export const PlaylistProvider = ({ children }) => {
 						status,
 						data: { playlist },
 					} = res;
-					console.log("res: ", res);
 					if (status === 200) {
 						dispatch({
 							type: REMOVE_FROM_PLAYLIST,
@@ -186,7 +181,6 @@ export const PlaylistProvider = ({ children }) => {
 						);
 					}
 				} catch (error) {
-					console.log(error);
 					toast.error(
 						"Some error occured in removing from playlist .",
 					);
