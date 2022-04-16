@@ -38,7 +38,7 @@ export const PlaylistModal = ({ showPlaylistFlag }) => {
 
                 {/* Modal title */}
                 <div className="modal__title">
-                    <h3 className="headline-3 text-primary">Add to Playlist</h3>
+                    {showPlaylistFlag ? <h3 className="headline-3 text-primary">Add to Playlist</h3> : <h3 className="headline-3 text-primary">Create Playlist</h3>}
                 </div>
 
                 {/* Modal discription*/}
