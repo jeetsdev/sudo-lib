@@ -25,7 +25,7 @@ export const Sidebar = () => {
 
     return (
         <div className="sidebar__menu">
-            <SideNavLink route={"name"} icon={<AiFillHome />} name={"Home"} />
+            <SideNavLink route={""} icon={<AiFillHome />} name={"Home"} />
             <SideNavLink route={"explore"} icon={<MdExplore />} name={"Explore"} />
             <SideNavLink route={"playlist"} icon={<MdVideoLibrary />} name={"Playlist"} />
             <SideNavLink route={"likes"} icon={<BsFillHandThumbsUpFill />} name={"Likes"} />

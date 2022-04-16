@@ -5,7 +5,7 @@ export const MyToast = () => {
 
 		//! Defining cutsom style for react toaster
 		<Toaster
-			position="top-right"
+			position="bottom-left"
 			reverseOrder={true}
 			toastOptions={{
 				className: "",
@@ -13,14 +13,18 @@ export const MyToast = () => {
 				success: {
 					style: {
 						backgroundColor: "#b3dfca",
-						color: "#015301",
+						color: "#043a04",
+						fontSize: ".8rem",
+						fontWeight: "700",
 					},
 				},
 				error: {
 					duration: 3000,
 					style: {
 						backgroundColor: "#dfb3b3",
-						color: "#800000",
+						color: "#490c0c",
+						fontSize: ".8rem",
+						fontWeight: "700",
 					},
 				},
 			}}

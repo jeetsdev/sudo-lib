@@ -1,0 +1,71 @@
+.playlist__card {
+	background-color: var(--color-grey);
+	position: relative;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+/* Playlist tumbnail style */
+.playlist__card-img {
+	cursor: pointer;
+	height: 15rem;
+}
+
+/*! Card overlay section style */
+
+.card__overlay {
+	position: absolute;
+}
+
+/* Card overlay right */
+.card__overlay-right {
+	right: 0;
+	top: 0;
+	left: 60%;
+	bottom: 25%;
+	z-index: 2;
+	background: var(--color-transparent-secondary);
+}
+
+.card__overlay-right .overlay__btn {
+	font-size: 2.5rem;
+	color: var(--color-pri);
+}
+
+.card__overlay-right p {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+/* Card overlay bottom */
+.card__overlay-bottom {
+	z-index: 3;
+	justify-content: space-between;
+	bottom: 0rem;
+	top: 75%;
+	background: var(--background-secondary-color);
+	left: 0;
+	right: 0;
+}
+
+.card__overlay-title {
+	font-weight: 900;
+	font-size: 1.2rem;
+}
+
+.card__overlay-details {
+	opacity: 0.8;
+}
+
+/* Overlay section button style */
+.overlay__btn-delete {
+	font-size: 1.5rem;
+	min-width: 1rem;
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+	color: var(--color-secondary);
+}
+
+.overlay__btn-delete:hover {
+	color: var(--error-color);
+}

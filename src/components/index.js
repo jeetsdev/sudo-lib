@@ -4,3 +4,6 @@ export { Header } from "./Header/Header";
 export { Sidebar } from "./Sidebar/Sidebar";
 export { VideoCard } from "./Cards/VideoCard/VideoCard";
 export { LikesCard } from "./Cards/LikesCard/LikesCard";
+export { PlaylistModal } from "./Modal/PlaylistModal";
+export { PlaylistCard } from "./Cards/PlaylistCard/PlaylistCard";
+export { SinglePlaylistCard } from "./Cards/PlaylistCard/SinglePlaylistCard";

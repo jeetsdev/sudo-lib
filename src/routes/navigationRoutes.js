@@ -12,6 +12,7 @@ import {
     WatchLater,
     History,
     Profile,
+    SinglePlaylist,
 } from "../pages";
 
 export const NavigationRoutes = () => {
@@ -35,6 +36,14 @@ export const NavigationRoutes = () => {
                 element={
                     <RequireAuth>
                         <Playlist />
+                    </RequireAuth>
+                }
+            />
+            <Route
+                path="/playlist/:playlistID"
+                element={
+                    <RequireAuth>
+                        <SinglePlaylist />
                     </RequireAuth>
                 }
             />

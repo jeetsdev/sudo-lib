@@ -1,12 +1,13 @@
-import { Categories, Sidebar, VideoCard } from "../../components"
-import { useVideo } from "../../contexts"
+import { Categories, PlaylistModal, Sidebar, VideoCard } from "../../components"
+import { usePlaylist, useVideo } from "../../contexts"
 import "./Explore.css"
 
 export const Explore = () => {
   const { videoState: { videos } } = useVideo();
-
+  const { playlistState: { modalFlag } } = usePlaylist();
   return (
     <div className="container__main container__explore">
+      {modalFlag && <PlaylistModal showPlaylistFlag={true} />}
       <Sidebar />
       <div className="video__sec">
         <Categories />
