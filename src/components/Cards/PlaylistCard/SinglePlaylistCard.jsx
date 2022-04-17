@@ -4,13 +4,14 @@ import { MdDelete } from "react-icons/md"
 import { useState } from "react"
 import { usePlaylist } from "../../../contexts"
 import { shortString } from "../../../utils"
+import { useNavigate } from "react-router-dom"
 
 
 export const SinglePlaylistCard = ({ video, playlistID }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
     const { removeFromPlaylist } = usePlaylist();
-
+    const navigate = useNavigate();
 
     // overlay menu here
     const [toolTip, setToolTip] = useState("showMenu");
@@ -22,7 +23,7 @@ export const SinglePlaylistCard = ({ video, playlistID }) => {
         <div className="video__card">
 
             {/* Card image here */}
-            <div className="video__card-img">
+            <div className="video__card-img" onClick={() => navigate(`/video/${video._id}`)}>
                 <img src={thumbnail} alt={`${title}`} className="image__res" />
             </div>
 

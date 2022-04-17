@@ -1,47 +1,47 @@
-.modal__box{
-    z-index: 99;
-    border-radius: 5px;
+.modal__box {
+	z-index: 99;
+	border-radius: 5px;
 }
 
 /* Modal style here */
-.modal{
-    background-color: var(--background-color);
-    min-width: 25rem;
-    justify-content: initial;
+.modal {
+	background-color: var(--background-color);
+	min-width: 25rem;
+	justify-content: initial;
 }
 
 /* Dismiss button style here */
-.modal .dismiss__btn{
-    font-size: 1.5rem;
+.modal .dismiss__btn {
+	font-size: 1.5rem;
 }
 
-.modal__create__playlist input{
-    width: 100%;
-    background: inherit;
-    outline: none;
-    border: 1px solid var(--color-grey);
-    color: inherit;
-    border-radius: 5px;
+.modal__create__playlist input {
+	width: 100%;
+	background: inherit;
+	outline: none;
+	border: 1px solid var(--color-grey);
+	color: inherit;
+	border-radius: 5px;
 }
-
 
 /* Modal playlist list section  */
 
-.modal__playlist label{
-    font-weight: 900;
-    font-size: 1.1rem;
+.modal__playlist label {
+	font-weight: 900;
+	font-size: 1.1rem;
 }
 
 /*Modal button section style   */
 
-.modal__btns{
-    margin-top: auto;
+.modal__btns {
+	margin-top: auto;
 }
 
-.modal__btns .btns{
-    width: 100%;
+.modal__btns .btns {
+	width: 100%;
 }
 
-.playlist__sec .video__cat button {
-    margin-left: auto;
+.playlist__sec .video__cat button,
+.history__sec .video__cat button {
+	margin-left: auto;
 }

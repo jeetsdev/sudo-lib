@@ -8,3 +8,5 @@ export { PlaylistModal } from "./Modal/PlaylistModal";
 export { PlaylistCard } from "./Cards/PlaylistCard/PlaylistCard";
 export { SinglePlaylistCard } from "./Cards/PlaylistCard/SinglePlaylistCard";
 export { WatchLaterCard } from "./Cards/WatchLaterCard/WatchLaterCard";
+export { VideoIframe } from "./VideoIframe/VideoIframe";
+export { HistoryCard } from "./Cards/HistoryCard/HistoryCard";

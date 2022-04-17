@@ -9,6 +9,7 @@
 
 .video__card-img {
 	transition: transform 0.4s ease-in-out;
+	cursor: pointer;
 }
 
 .video__card-img:hover {

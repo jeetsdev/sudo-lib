@@ -9,3 +9,5 @@ export { Playlist } from "./Playlist/Playlist";
 export { SinglePlaylist } from "./Playlist/SinglePlaylist";
 export { Profile } from "./Profile/Profile";
 export { WatchLater } from "./WatchLater/WatchLater";
+export { SingleVideo } from "./Video/SingleVideo";
+

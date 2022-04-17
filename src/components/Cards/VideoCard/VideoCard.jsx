@@ -28,7 +28,7 @@ export const VideoCard = ({ video }) => {
 	return (
 		<div className="video__card">
 			{/* Card image here */}
-			<div className="video__card-img">
+			<div className="video__card-img" onClick={() => navigate(`/video/${video._id}`)}>
 				<img src={thumbnail} alt={`${title}`} className="image__res" />
 			</div>
 
