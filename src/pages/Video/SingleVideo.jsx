@@ -16,7 +16,6 @@ export const SingleVideo = () => {
     }
     return (
         <div className="container__main container__likes">
-            <h1>This is h2{videoID}</h1>
             <Sidebar />
             <div className="video__sec playlist__sec">
                 <div className="video__sec-video">
