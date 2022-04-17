@@ -13,6 +13,7 @@ import {
     History,
     Profile,
     SinglePlaylist,
+    SingleVideo,
 } from "../pages";
 
 export const NavigationRoutes = () => {
@@ -21,6 +22,7 @@ export const NavigationRoutes = () => {
             <Route path="*" element={<Error />} />
             <Route path="/" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/video/:videoID" element={<SingleVideo />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route

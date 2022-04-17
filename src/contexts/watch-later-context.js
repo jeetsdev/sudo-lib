@@ -34,7 +34,7 @@ export const WatchLaterProvider = ({ children }) => {
 						status,
 						data: { watchlater },
 					} = res;
-					console.log(res);
+
 					if (status === 200) {
 						dispatch({
 							type: GET_WATCH_LATER_VIDEOS,

@@ -1,25 +1,17 @@
-// import "./VideoCard.css"
 import { HiDotsVertical } from "react-icons/hi"
 import { BsFillEyeFill, BsCheckCircleFill } from "react-icons/bs"
-import { AiFillClockCircle } from "react-icons/ai"
-import { MdPlaylistAdd, MdDelete } from "react-icons/md"
+import { MdDelete } from "react-icons/md"
 import { useState } from "react"
-import { useAuth, useLike, usePlaylist, useWatchLater } from "../../../contexts"
+import { useHistory } from "../../../contexts"
 import { shortString } from "../../../utils"
-import { ACTION_TYPE } from "../../../reducers"
 import { useNavigate } from "react-router-dom"
 
 
-export const LikesCard = ({ video }) => {
+export const HistoryCard = ({ video }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
-    const { SHOW_MODAL } = ACTION_TYPE;
-    const { removeFromLike } = useLike();
-    const { playlistDispatch } = usePlaylist();
-    const { authToken } = useAuth();
-    const { addToWatchLater } = useWatchLater();
+    const { removeFromHistory } = useHistory();
     const navigate = useNavigate();
-
 
     // overlay menu here
     const [toolTip, setToolTip] = useState("showMenu");
@@ -54,11 +46,8 @@ export const LikesCard = ({ video }) => {
                     <div className="card__data-menu" onClick={menuClickHandler} >
                         <HiDotsVertical className="upper__title-menu" />
                         <div className={`card__data-overlay ${toolTip}`}>
-
                             {/* Menu icon here */}
-                            <MdDelete className="center__flex" onClick={() => removeFromLike(video)} />
-                            <AiFillClockCircle className="center__flex" onClick={() => addToWatchLater(video)} />
-                            <MdPlaylistAdd className="center__flex" onClick={() => authToken ? playlistDispatch({ type: SHOW_MODAL, payload: video }) : navigate("/login", { replace: true })} />
+                            <MdDelete className="center__flex" onClick={() => removeFromHistory(video)} />
                         </div>
                     </div>
                 </div>

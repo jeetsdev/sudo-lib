@@ -2,15 +2,16 @@ import { HiDotsVertical } from "react-icons/hi"
 import { BsFillEyeFill, BsCheckCircleFill } from "react-icons/bs"
 import { MdDelete } from "react-icons/md"
 import { useState } from "react"
-import {  useWatchLater } from "../../../contexts"
+import { useWatchLater } from "../../../contexts"
 import { shortString } from "../../../utils"
+import { useNavigate } from "react-router-dom"
 
 
 export const WatchLaterCard = ({ video }) => {
     const { thumbnail, title, description, creatorAvatar, creator
         , views } = video;
     const { removeFromWatchLater } = useWatchLater();
-
+    const navigate = useNavigate();
 
     // overlay menu here
     const [toolTip, setToolTip] = useState("showMenu");
@@ -22,7 +23,7 @@ export const WatchLaterCard = ({ video }) => {
         <div className="video__card">
 
             {/* Card image here */}
-            <div className="video__card-img">
+            <div className="video__card-img" onClick={() => navigate(`/video/${video._id}`)}>
                 <img src={thumbnail} alt={`${title}`} className="image__res" />
             </div>
 
