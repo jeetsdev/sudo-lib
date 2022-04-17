@@ -4,7 +4,7 @@ import { BsFillHandThumbsUpFill, BsFillEyeFill, BsCheckCircleFill } from "react-
 import { AiFillClockCircle } from "react-icons/ai"
 import { MdPlaylistAdd } from "react-icons/md"
 import { useState } from "react"
-import { useLike, useAuth, usePlaylist } from "../../../contexts"
+import { useLike, useAuth, usePlaylist, useWatchLater } from "../../../contexts"
 import { useNavigate } from "react-router-dom"
 import { shortString } from "../../../utils"
 import { ACTION_TYPE } from "../../../reducers"
@@ -17,6 +17,7 @@ export const VideoCard = ({ video }) => {
 	const { authToken } = useAuth();
 	const navigate = useNavigate();
 	const { playlistDispatch } = usePlaylist();
+	const { addToWatchLater } = useWatchLater();
 
 	// overlay menu here
 	const [toolTip, setToolTip] = useState("showMenu");
@@ -53,7 +54,7 @@ export const VideoCard = ({ video }) => {
 
 							{/* Menu icon here */}
 							<BsFillHandThumbsUpFill className="card__btn-like center__flex" onClick={() => authToken ? addToLike(video) : navigate("/login", { replace: true })} />
-							<AiFillClockCircle className="center__flex" />
+							<AiFillClockCircle className="center__flex" onClick={() => authToken ? addToWatchLater(video) : navigate("/login", { replace: true })} />
 							<MdPlaylistAdd className="center__flex" onClick={() => authToken ? playlistDispatch({ type: SHOW_MODAL, payload: video }) : navigate("/login", { replace: true })} />
 						</div>
 					</div>
