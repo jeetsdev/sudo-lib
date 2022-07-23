@@ -9,7 +9,6 @@ const { GET_LIKED_VIDEOS, ADD_TO_LIKE, REMOVE_FROM_LIKE } = ACTION_TYPE;
 
 export const LikeProvider = ({ children }) => {
 	const { authToken } = useAuth();
-
 	const [state, dispatch] = useReducer(likeReducer, {
 		likedVideos: [],
 	});
@@ -40,8 +39,6 @@ export const LikeProvider = ({ children }) => {
 
 	// Add to liked videos handler
 	const addToLike = async (video) => {
-		console.log("getting called add to like");
-		console.log("video: ", video);
 		try {
 			const res = await axios.post(
 				"/api/user/likes",
@@ -54,12 +51,11 @@ export const LikeProvider = ({ children }) => {
 					},
 				},
 			);
-			console.log("res: ", res);
+
 			const {
 				status,
 				data: { likes },
 			} = res;
-			// console.log("res: ", res);
 			if (status === 201) {
 				toast.success("Added to liked videos.");
 				dispatch({ type: ADD_TO_LIKE, payload: likes });
