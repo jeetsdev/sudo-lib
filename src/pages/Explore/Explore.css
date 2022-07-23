@@ -1,67 +1,67 @@
 /* Container style here */
 .container__main {
-    position: relative;
-    display: flex;
-    margin-bottom: 1rem;
+	position: relative;
+	display: flex;
+	margin-bottom: 1rem;
 }
 
 /*! Sidebar style here  */
 
 .sidebar__menu {
-    position: fixed;
-    background-color: var(--background-color);
-    z-index: 8;
-    left: 0;
-    height: 100%;
-    top: 5rem;
-    padding-top: .5rem;
-    padding-left: 1rem;
-    min-width: 220px;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+	position: fixed;
+	background-color: var(--background-color);
+	z-index: 8;
+	left: 0;
+	height: 100%;
+	top: 5rem;
+	padding-top: 0.5rem;
+	padding-left: 1rem;
+	min-width: 220px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .sidebar__link {
-    cursor: pointer;
-    border-radius: 5px;
-    padding: .5rem 1rem;
-    justify-content: flex-start;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+	justify-content: flex-start;
 }
 
-.sidebar__link>* {
-    margin: 0 8px;
+.sidebar__link > * {
+	margin: 0 8px;
 }
 
 /* Videos listing  section style here  */
 .video__sec {
-    padding: 0 1rem;
-    margin-left: 220px;
-    flex-grow: 1;
+	padding: 0 1rem;
+	margin-left: 220px;
+	flex-grow: 1;
 }
 
 .video__cat {
-    position: sticky;
-    background-color: var(--background-color);
-    z-index: 8;
-    top: 5rem;
-    margin-bottom: 1rem;
-    border-top: 2px solid var(--text-sec);
-    border-bottom: 2px solid var(--text-sec);
+	position: sticky;
+	background-color: var(--background-color);
+	z-index: 8;
+	top: 5rem;
+	margin-bottom: 1rem;
+	border-top: 2px solid var(--text-sec);
+	border-bottom: 2px solid var(--text-sec);
 }
 
-.video__cat .video__cat-btn {
-    outline: none;
-    font-weight: 500;
-    background-color: var(--text-sec);
+.video__cat-btn {
+	outline: none;
+	font-weight: 500;
+	background-color: var(--text-sec);
 }
 
-.video__cat .video__cat-btn:hover {
-    background-color: var(--primary-color);
+.video__cat-btn:hover {
+	background-color: var(--primary-color);
 }
 
 .video__list-sec {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
 }

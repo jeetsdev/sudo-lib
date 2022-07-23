@@ -9,7 +9,6 @@ const { GET_LIKED_VIDEOS, ADD_TO_LIKE, REMOVE_FROM_LIKE } = ACTION_TYPE;
 
 export const LikeProvider = ({ children }) => {
 	const { authToken } = useAuth();
-
 	const [state, dispatch] = useReducer(likeReducer, {
 		likedVideos: [],
 	});
@@ -19,7 +18,7 @@ export const LikeProvider = ({ children }) => {
 		if (authToken) {
 			try {
 				(async () => {
-					const res = await axios.get("api/user/likes", {
+					const res = await axios.get("/api/user/likes", {
 						headers: {
 							authorization: authToken,
 						},
@@ -42,7 +41,7 @@ export const LikeProvider = ({ children }) => {
 	const addToLike = async (video) => {
 		try {
 			const res = await axios.post(
-				"api/user/likes",
+				"/api/user/likes",
 				{
 					video: video,
 				},
@@ -52,6 +51,7 @@ export const LikeProvider = ({ children }) => {
 					},
 				},
 			);
+
 			const {
 				status,
 				data: { likes },

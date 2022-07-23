@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../contexts";
 import { useEffect } from "react";
-// import { ACTION_TYPE } from "../../reducers";
 
 export const Login = () => {
 
@@ -33,6 +32,7 @@ export const Login = () => {
         setloginFormData({
             email: "sudo123@gmail.com",
             password: "sudo123",
+            passType: "password"
         })
     }
 

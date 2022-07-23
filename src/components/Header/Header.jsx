@@ -13,7 +13,7 @@ export const Header = () => {
                 {/* Title section here */}
                 <div className="nav__title-sec">
                     <Link to={"/"}>
-                        <h3 className="headline-3"> SudoLib </h3>
+                        <h3 className="headline-3 text-heading"> Sudo-lib </h3>
                     </Link>
                 </div>
                 {/* Search section here*/}
@@ -27,7 +27,7 @@ export const Header = () => {
                 <div className="nav__button-sec btn__flow center__flex">
                     {authToken ? <div>
                         <Link to={"/profile"} className="user__avatar center__flex">
-                            <p className="margin__lr-8px">Hi {userName.split(" ")[0]}</p>
+                            <p className="margin__lr-8px">Hi {userName?.split(" ")[0]}</p>
                             <FaUserCircle className="user__avatar-icon margin__lr-4px" />
                         </Link>
                     </div>
