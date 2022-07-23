@@ -25,7 +25,7 @@ export const WatchLaterProvider = ({ children }) => {
 		if (authToken) {
 			try {
 				(async () => {
-					const res = await axios.get("api/user/watchlater", {
+					const res = await axios.get("/api/user/watchlater", {
 						headers: {
 							authorization: authToken,
 						},
@@ -50,9 +50,11 @@ export const WatchLaterProvider = ({ children }) => {
 
 	// Add to watch later videos handler
 	const addToWatchLater = async (video) => {
+		console.log("getting called watch later");
+		console.log('video: ', video);
 		try {
 			const res = await axios.post(
-				"api/user/watchlater",
+				"/api/user/watchlater",
 				{
 					video: video,
 				},

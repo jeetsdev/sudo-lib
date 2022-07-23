@@ -27,7 +27,7 @@ export const Header = () => {
                 <div className="nav__button-sec btn__flow center__flex">
                     {authToken ? <div>
                         <Link to={"/profile"} className="user__avatar center__flex">
-                            <p className="margin__lr-8px">Hi {userName.split(" ")[0]}</p>
+                            <p className="margin__lr-8px">Hi {userName?.split(" ")[0]}</p>
                             <FaUserCircle className="user__avatar-icon margin__lr-4px" />
                         </Link>
                     </div>

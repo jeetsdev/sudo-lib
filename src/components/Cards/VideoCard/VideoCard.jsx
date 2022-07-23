@@ -73,7 +73,7 @@ export const VideoCard = ({ video }) => {
 				</div>
 
 				{/* Card description here */}
-				<div className="card__data-lower">
+				<div className="card__data-lower margin-8px">
 					<div className="data__lower-descr">
 						<p className="txt-mid">{shortString(description, 20)}...</p>
 					</div>

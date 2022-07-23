@@ -19,7 +19,7 @@ export const LikeProvider = ({ children }) => {
 		if (authToken) {
 			try {
 				(async () => {
-					const res = await axios.get("api/user/likes", {
+					const res = await axios.get("/api/user/likes", {
 						headers: {
 							authorization: authToken,
 						},
@@ -40,9 +40,11 @@ export const LikeProvider = ({ children }) => {
 
 	// Add to liked videos handler
 	const addToLike = async (video) => {
+		console.log("getting called add to like");
+		console.log("video: ", video);
 		try {
 			const res = await axios.post(
-				"api/user/likes",
+				"/api/user/likes",
 				{
 					video: video,
 				},
@@ -52,10 +54,12 @@ export const LikeProvider = ({ children }) => {
 					},
 				},
 			);
+			console.log("res: ", res);
 			const {
 				status,
 				data: { likes },
 			} = res;
+			// console.log("res: ", res);
 			if (status === 201) {
 				toast.success("Added to liked videos.");
 				dispatch({ type: ADD_TO_LIKE, payload: likes });

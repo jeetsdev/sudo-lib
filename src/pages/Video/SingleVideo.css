@@ -1,0 +1,26 @@
+.video__sec-video {
+	width: 100%;
+    border-radius: 5px;
+    border: 4px solid var(--background-secondary-color);
+    /* padding: .5rem; */
+}
+
+.video__iframe {
+    object-fit: contain;
+	width: 100%;
+    min-height: 60vh;
+}
+    
+.notes__sec{
+    border: 4px solid var(--background-secondary-color);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.other__sec-title h3{
+    margin-right: auto;
+}
+
+.other__sec-creator,.other__sec-btn{
+    justify-content: initial;
+}

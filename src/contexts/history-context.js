@@ -26,7 +26,7 @@ export const HistoryProvider = ({ children }) => {
 		if (authToken) {
 			try {
 				(async () => {
-					const res = await axios.get("api/user/history", {
+					const res = await axios.get("/api/user/history", {
 						headers: {
 							authorization: authToken,
 						},

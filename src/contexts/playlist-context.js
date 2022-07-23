@@ -28,7 +28,7 @@ export const PlaylistProvider = ({ children }) => {
 		if (authToken) {
 			try {
 				(async () => {
-					const res = await axios.get("api/user/playlists", {
+					const res = await axios.get("/api/user/playlists", {
 						headers: {
 							authorization: authToken,
 						},

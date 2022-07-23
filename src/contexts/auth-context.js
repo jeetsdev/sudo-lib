@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
                     }
                     setUserName(foundUser?.userName);
                     setAuthToken(encodedToken);
-                    navigate("/", { replace: true });
+                    navigate("/explore", { replace: true });
                     toast.success(`Welcome back ${foundUser?.userName}`);
                 }
             } catch (error) {
@@ -102,7 +102,7 @@ export const AuthProvider = ({ children }) => {
                         "userData",
                         JSON.stringify(createdUser)
                     );
-                    navigate("/", { replace: true });
+                    navigate("/explore", { replace: true });
                     toast.success(`Welcome ${createdUser?.userName}`);
                 }
             } catch (error) {
