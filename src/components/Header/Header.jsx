@@ -13,7 +13,7 @@ export const Header = () => {
                 {/* Title section here */}
                 <div className="nav__title-sec">
                     <Link to={"/"}>
-                        <h3 className="headline-3"> SudoLib </h3>
+                        <h3 className="headline-3 text-heading"> Sudo-lib </h3>
                     </Link>
                 </div>
                 {/* Search section here*/}
