@@ -1,5 +1,4 @@
 export { Likes } from "./Likes/Likes";
-export { Home } from "./Home/Home";
 export { Explore } from "./Explore/Explore";
 export { Error } from "./Error/Error";
 export { Login } from "./Auth/Login";

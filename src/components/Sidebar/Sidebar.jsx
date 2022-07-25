@@ -1,4 +1,4 @@
-import { AiFillHome, AiFillClockCircle, AiOutlineHistory, AiOutlineLogout } from 'react-icons/ai'
+import { AiFillClockCircle, AiOutlineHistory, AiOutlineLogout } from 'react-icons/ai'
 import { MdExplore, MdVideoLibrary } from 'react-icons/md'
 import { BsFillHandThumbsUpFill } from 'react-icons/bs'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -25,8 +25,7 @@ export const Sidebar = () => {
 
     return (
         <div className="sidebar__menu">
-            <SideNavLink route={""} icon={<AiFillHome />} name={"Home"} />
-            <SideNavLink route={"explore"} icon={<MdExplore />} name={"Explore"} />
+            <SideNavLink route={""} icon={<MdExplore />} name={"Explore"} />
             <SideNavLink route={"playlist"} icon={<MdVideoLibrary />} name={"Playlist"} />
             <SideNavLink route={"likes"} icon={<BsFillHandThumbsUpFill />} name={"Likes"} />
             <SideNavLink route={"watchlater"} icon={<AiFillClockCircle />} name={"Watch Later"} />

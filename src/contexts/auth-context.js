@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
 					}
 					setUserName(foundUser?.userName);
 					setAuthToken(encodedToken);
-					navigate(location?.state?.from?.pathname || "/explore", {
+					navigate(location?.state?.from?.pathname || "/", {
 						replace: true,
 					});
 					toast.success(`Welcome back ${foundUser?.userName}`);
@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }) => {
 						"userData",
 						JSON.stringify(createdUser),
 					);
-					navigate("/explore", { replace: true });
+					navigate("/", { replace: true });
 					toast.success(`Welcome ${createdUser?.userName}`);
 				}
 			} catch (error) {}
@@ -116,7 +116,7 @@ export const AuthProvider = ({ children }) => {
 		setAuthToken("");
 		setUserName("");
 		toast.success("Sign out successfull");
-		navigate("/explore");
+		navigate("/");
 		localStorage.removeItem("encoded-token");
 		localStorage.removeItem("userData");
 	};

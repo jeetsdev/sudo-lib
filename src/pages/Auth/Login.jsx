@@ -43,7 +43,7 @@ export const Login = () => {
 
     // Checking if alredy login
     useEffect(() => {
-        if (authToken) { navigate('/explore') }
+        if (authToken) { navigate('/') }
         // Setting intial error to empty
         setError({
             passwordError: "",
