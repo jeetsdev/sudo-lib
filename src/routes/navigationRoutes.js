@@ -2,7 +2,6 @@ import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 import { RequireAuth } from "../contexts";
 import {
-	Home,
 	Error,
 	Explore,
 	Login,
@@ -20,8 +19,7 @@ export const NavigationRoutes = () => {
 	return (
 		<Routes>
 			<Route path="*" element={<Error />} />
-			<Route path="/" element={<Home />} />
-			<Route path="/explore" element={<Explore />} />
+			<Route path="/" element={<Explore />} />
 			<Route path="/video/:videoID" element={<SingleVideo />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/signup" element={<SignUp />} />

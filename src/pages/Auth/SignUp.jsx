@@ -29,7 +29,7 @@ export const SignUp = () => {
     }
 
     useEffect(() => {
-        if (authToken) { navigate('/explore') }
+        if (authToken) { navigate('/') }
         // Setting intial error to empty
         setError({
             passwordError: "",

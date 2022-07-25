@@ -14,7 +14,7 @@ export const WatchLater = () => {
                 {watchLaterVideos.length === 0 ?
                     <div className="video__empty-sec">
                         <p className="text-mid">Opps! No videos here, Let's explore and add some.</p>
-                        <Link to="/explore">
+                        <Link to="/">
                             <button className="btns btn__primary margin-1rem center__flex">
                                 Explore <BsArrowRightCircleFill className="margin__lr-4px" />
                             </button>

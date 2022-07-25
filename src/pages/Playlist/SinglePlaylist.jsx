@@ -32,7 +32,7 @@ export const SinglePlaylist = () => {
                     // No videos here
                     <div className="video__empty-sec">
                         <p className="text-mid">Opps! Thers's no videos in {currentPlaylist.title}, Let's explore and add some.</p>
-                        <button className="btns btn__primary margin-1rem center__flex" onClick={() => navigate("/explore")}>
+                        <button className="btns btn__primary margin-1rem center__flex" onClick={() => navigate("/")}>
                             Explore <BsArrowRightCircleFill className="margin__lr-4px" />
                         </button>
                     </div> :
@@ -41,7 +41,7 @@ export const SinglePlaylist = () => {
                     <div>
                         <div className="video__cat center__flex">
                             <p>{currentPlaylist.title} {`(${(playlistVideos.length)})`}</p>
-                            <button className="btns btn__primary center__flex" onClick={() => navigate("/explore")}>
+                            <button className="btns btn__primary center__flex" onClick={() => navigate("/")}>
                                 Explore <BsArrowRightCircleFill className="margin__lr-4px" />
                             </button>
                         </div>
