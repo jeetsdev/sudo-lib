@@ -5,7 +5,7 @@ export const MyToast = () => {
 
 		//! Defining cutsom style for react toaster
 		<Toaster
-			position="bottom-left"
+			position="top-center"
 			reverseOrder={true}
 			toastOptions={{
 				className: "",
