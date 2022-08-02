@@ -52,45 +52,101 @@ export const Login = () => {
     }, [authToken, navigate, setError])
 
     return (
-        <div>
-            {/* Validation form here */}
-            <form onSubmit={(event) => formSubmitHandler(event)} className="container__main-login center__flex flex__dir-col">
-                <h4 className="margin-1rem h3">Login</h4>
+		<div className="video__sec center__flex flex__dir-col">
+			{/* Validation form here */}
+			<form
+				onSubmit={(event) => formSubmitHandler(event)}
+				className="container__main-login center__flex flex__dir-col">
+				<h4 className="margin-1rem h3">Login</h4>
 
-                {/* Email section here */}
-                <div className="margin-1rem main__login-inputs center__flex">
-                    <MdEmail className="icons" />
-                    <input type="email" className="margin__lr-8px" placeholder="Enter email" required value={loginFormData.email} onChange={(event) => setloginFormData({ ...loginFormData, email: `${event.target.value}` })} />
-                    {error.emailError && <p className="validation-error txt-sml">{error.emailError}</p>}
-                </div>
+				{/* Email section here */}
+				<div className="margin-1rem main__login-inputs center__flex">
+					<MdEmail className="icons" />
+					<input
+						type="email"
+						className="margin__lr-8px"
+						placeholder="Enter email"
+						required
+						value={loginFormData.email}
+						onChange={(event) =>
+							setloginFormData({
+								...loginFormData,
+								email: `${event.target.value}`,
+							})
+						}
+					/>
+					{error.emailError && (
+						<p className="validation-error txt-sml">
+							{error.emailError}
+						</p>
+					)}
+				</div>
 
-                {/* Password section here */}
-                <div className="margin-1rem main__login-inputs center__flex">
-                    <RiLockPasswordFill className="icons" />
-                    <input type={loginFormData.passType} className="margin__lr-8px" placeholder="Enter password" required value={loginFormData.password} onChange={(event) => setloginFormData({ ...loginFormData, password: `${event.target.value}` })} />
-                    {
-                        loginFormData.passType === "password" ?
-                            <AiFillEyeInvisible className="icons toggle-pass" onClick={passVisibiltyHandler} />
-                            :
-                            <AiFillEye className="toggle-pass" onClick={passVisibiltyHandler} />
-                    }
-                    {error.passwordError && <p className="validation-error txt-sml">{error.passwordError}.</p>}
-                </div>
+				{/* Password section here */}
+				<div className="margin-1rem main__login-inputs center__flex">
+					<RiLockPasswordFill className="icons" />
+					<input
+						type={loginFormData.passType}
+						className="margin__lr-8px"
+						placeholder="Enter password"
+						required
+						value={loginFormData.password}
+						onChange={(event) =>
+							setloginFormData({
+								...loginFormData,
+								password: `${event.target.value}`,
+							})
+						}
+					/>
+					{loginFormData.passType === "password" ? (
+						<AiFillEyeInvisible
+							className="icons toggle-pass"
+							onClick={passVisibiltyHandler}
+						/>
+					) : (
+						<AiFillEye
+							className="toggle-pass"
+							onClick={passVisibiltyHandler}
+						/>
+					)}
+					{error.passwordError && (
+						<p className="validation-error txt-sml">
+							{error.passwordError}.
+						</p>
+					)}
+				</div>
 
-                {/* Submit section here */}
-                <div className="margin-1rem login__remember-sec center__flex">
-                    <input type="checkbox" id="remember__btn" />
-                    <label htmlFor="remember__btn" className=" margin__lr-8px txt-mid" value={rememberMe} onClick={() => setRememberMe((prevState) => !prevState)}>Remember Me</label>
-                </div>
-                <button className="btns btn__primary btn-login">Login</button>
-                <p className="btns btn__link" onClick={testCredentialHandler}>Use test credentials</p>
-            </form>
+				{/* Submit section here */}
+				<div className="margin-1rem login__remember-sec center__flex">
+					<input type="checkbox" id="remember__btn" />
+					<label
+						htmlFor="remember__btn"
+						className=" margin__lr-8px txt-mid"
+						value={rememberMe}
+						onClick={() =>
+							setRememberMe((prevState) => !prevState)
+						}>
+						Remember Me
+					</label>
+				</div>
+				<button className="btns btn__primary btn-login">Login</button>
+				<p className="btns btn__link" onClick={testCredentialHandler}>
+					Use test credentials
+				</p>
+			</form>
 
-            {/* Other section */}
-            <div className="center__flex flex__dir-col margin-1rem">
-                <p>Don't have an account? <Link to={"/signup"} className="btns btn__link">Sign up</Link></p>
-                <Link to={"/forgot"} className="btns btn__link">Forgot password?</Link>
-            </div>
-        </div>
-    )
+			{/* Other section */}
+			<div className="center__flex flex__dir-col margin-1rem">
+				<p>
+					Don't have an account?{" "}
+					<Link to={"/signup"} className="btns btn__link">
+						Sign up
+					</Link>
+				</p>
+				<Link to={"/forgot"} className="btns btn__link">
+					Forgot password?
+				</Link>
+			</div>
+		</div>
+	);
 }

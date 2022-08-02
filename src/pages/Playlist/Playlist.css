@@ -45,3 +45,10 @@
 .history__sec .video__cat button {
 	margin-left: auto;
 }
+
+/*! Media quiries here  */
+@media screen and (max-width: 520px) {
+	.modal {
+		min-width: 80%;
+	}
+}

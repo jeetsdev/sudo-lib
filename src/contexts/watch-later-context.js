@@ -50,8 +50,6 @@ export const WatchLaterProvider = ({ children }) => {
 
 	// Add to watch later videos handler
 	const addToWatchLater = async (video) => {
-		console.log("getting called watch later");
-		console.log('video: ', video);
 		try {
 			const res = await axios.post(
 				"/api/user/watchlater",
