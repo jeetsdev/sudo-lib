@@ -55,7 +55,7 @@ export const SingleVideo = () => {
 		<div className="container__main container__likes">
 			{modalFlag && <PlaylistModal showPlaylistFlag={true} />}
 
-			<div className="video__sec playlist__sec border__rad-4px grid">
+			<div className="container__mid-sec playlist__sec border__rad-4px grid">
 				<div>
 					<div className="video__sec-video ">
 						<VideoIframe video={currentVideo} />

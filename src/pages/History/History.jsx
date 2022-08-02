@@ -11,7 +11,7 @@ export const History = () => {
 
 	return (
 		<div className="container__main container__likes">
-			<div className="video__sec history__sec">
+			<div className="container__mid-sec history__sec">
 				{historyVideos.length === 0 ? (
 					<div className="video__empty-sec">
 						<p className="text-mid">

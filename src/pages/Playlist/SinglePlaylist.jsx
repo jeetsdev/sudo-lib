@@ -28,7 +28,7 @@ export const SinglePlaylist = () => {
 
 	return (
 		<div className="container__main container__likes">
-			<div className="video__sec playlist__sec">
+			<div className="container__mid-sec playlist__sec">
 				{playlistVideos.length === 0 ? (
 					// No videos here
 					<div className="video__empty-sec">

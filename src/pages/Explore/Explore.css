@@ -50,7 +50,7 @@
 }
 
 /* Videos listing  section style here  */
-.video__sec {
+.container__mid-sec {
 	padding: 0 1rem;
 	margin-left: 220px;
 	flex-grow: 1;
@@ -99,7 +99,7 @@
 	.video__list-sec {
 		grid-template-columns: 1fr;
 	}
-	.video__sec {
+	.container__mid-sec {
 		margin-left: 0px;
 	}
 
@@ -125,9 +125,9 @@
 	/*! sidebar */
 	.sidebar__menu {
 		transform: translateX(-300px);
-		transition: transform .3s ease-in-out;
+		transition: transform 0.3s ease-in-out;
 	}
-	
+
 	.sidebar__menu.sidebar__menu-active {
 		transform: translateX(0px);
 		min-width: 220px;

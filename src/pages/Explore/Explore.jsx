@@ -13,7 +13,7 @@ export const Explore = () => {
 	return (
 		<div className="container__main container__explore">
 			{modalFlag && <PlaylistModal showPlaylistFlag={true} />}
-			<div className="video__sec">
+			<div className="container__mid-sec ">
 				<Categories />
 				<div className="video__list-sec">
 					{videos &&

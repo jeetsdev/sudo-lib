@@ -13,7 +13,7 @@ export const Playlist = () => {
 	return (
 		<div className="container__main container__likes">
 			{modalFlag && <PlaylistModal showPlaylistFlag={false} />}
-			<div className="video__sec playlist__sec">
+			<div className="container__mid-sec playlist__sec">
 				{playlists.length === 0 ? (
 					<div className="video__empty-sec">
 						<p className="text-mid">

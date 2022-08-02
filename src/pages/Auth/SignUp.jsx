@@ -41,7 +41,7 @@ export const SignUp = () => {
 	}, [authToken, navigate, setError]);
 
 	return (
-		<div className="video__sec center__flex flex__dir-col">
+		<div className="container__mid-sec center__flex flex__dir-col">
 			{/* Validation form here */}
 			<form
 				onSubmit={(event) => signupFormHandler(event)}

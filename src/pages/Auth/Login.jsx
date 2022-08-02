@@ -1,58 +1,61 @@
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import "./Auth.css"
+import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../contexts";
 import { useEffect } from "react";
 
 export const Login = () => {
+	// Auth context values here
+	const { authToken, loginFormHandler, error, setError } = useAuth();
+	const navigate = useNavigate();
 
-    // Auth context values here 
-    const { authToken, loginFormHandler, error, setError } = useAuth();
-    const navigate = useNavigate();
+	// Formdata state here
+	const [loginFormData, setloginFormData] = useState({
+		email: "",
+		password: "",
+		passType: "password",
+	});
+	const [rememberMe, setRememberMe] = useState(false);
 
-    // Formdata state here
-    const [loginFormData, setloginFormData] = useState({
-        email: "",
-        password: "",
-        passType: "password"
-    })
-    const [rememberMe, setRememberMe] = useState(false);
+	// On submit handler
+	const formSubmitHandler = (event) => {
+		event.preventDefault();
+		loginFormHandler(loginFormData, rememberMe);
+	};
 
-    // On submit handler 
-    const formSubmitHandler = (event) => {
-        event.preventDefault();
-        loginFormHandler(loginFormData, rememberMe);
-    }
+	// To fill test data
+	const testCredentialHandler = () => {
+		setloginFormData({
+			email: "sudo123@gmail.com",
+			password: "sudo123",
+			passType: "password",
+		});
+	};
 
-    // To fill test data 
-    const testCredentialHandler = () => {
-        setloginFormData({
-            email: "sudo123@gmail.com",
-            password: "sudo123",
-            passType: "password"
-        })
-    }
+	// password visibilty handler here
+	const passVisibiltyHandler = () => {
+		return loginFormData.passType === "password"
+			? setloginFormData({ ...loginFormData, passType: "text" })
+			: setloginFormData({ ...loginFormData, passType: "password" });
+	};
 
-    // password visibilty handler here 
-    const passVisibiltyHandler = () => {
-        return loginFormData.passType === "password" ? setloginFormData({ ...loginFormData, passType: "text" }) : setloginFormData({ ...loginFormData, passType: "password" });
-    }
+	// Checking if alredy login
+	useEffect(() => {
+		if (authToken) {
+			navigate("/");
+		}
+		// Setting intial error to empty
+		setError({
+			passwordError: "",
+			emailError: "",
+		});
+	}, [authToken, navigate, setError]);
 
-    // Checking if alredy login
-    useEffect(() => {
-        if (authToken) { navigate('/') }
-        // Setting intial error to empty
-        setError({
-            passwordError: "",
-            emailError: "",
-        });
-    }, [authToken, navigate, setError])
-
-    return (
-		<div className="video__sec center__flex flex__dir-col">
+	return (
+		<div className="container__mid-sec center__flex flex__dir-col">
 			{/* Validation form here */}
 			<form
 				onSubmit={(event) => formSubmitHandler(event)}
@@ -149,4 +152,4 @@ export const Login = () => {
 			</div>
 		</div>
 	);
-}
+};

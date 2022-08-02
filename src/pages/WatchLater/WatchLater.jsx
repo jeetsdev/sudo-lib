@@ -10,7 +10,7 @@ export const WatchLater = () => {
 
 	return (
 		<div className="container__main container__likes">
-			<div className="video__sec likes__sec">
+			<div className="container__mid-sec likes__sec">
 				{watchLaterVideos.length === 0 ? (
 					<div className="video__empty-sec">
 						<p className="text-mid">
