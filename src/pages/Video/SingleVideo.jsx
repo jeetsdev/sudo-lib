@@ -17,6 +17,7 @@ import { AiFillClockCircle } from "react-icons/ai";
 import { MdPlaylistAdd } from "react-icons/md";
 import "./SingleVideo.css";
 import { ACTION_TYPE } from "../../reducers";
+import { useEffect } from "react";
 
 export const SingleVideo = () => {
 	const { videoID } = useParams();
@@ -42,9 +43,13 @@ export const SingleVideo = () => {
 	const isAlreadyInHistory = historyVideos?.some(
 		(eachVideo) => eachVideo?._id === currentVideo?._id,
 	);
-	if (!isAlreadyInHistory) {
-		addToHistory(currentVideo);
-	}
+
+	// Adding to history here
+	useEffect(() => {
+		if (!isAlreadyInHistory && currentVideo) {
+			addToHistory(currentVideo);
+		}
+	}, [addToHistory, currentVideo, isAlreadyInHistory]);
 
 	return (
 		<div className="container__main container__likes">

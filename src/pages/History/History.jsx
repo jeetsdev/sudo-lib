@@ -35,11 +35,11 @@ export const History = () => {
 							</button>
 						</div>
 						<div className="video__list-sec">
-							{historyVideos.map((eachVideo) => {
+							{historyVideos?.map((eachVideo) => {
 								return (
 									<HistoryCard
 										video={eachVideo}
-										key={eachVideo.id}
+										key={eachVideo?.id}
 									/>
 								);
 							})}
