@@ -23,4 +23,5 @@
 .other__sec-creator,
 .other__sec-btn {
 	justify-content: initial;
+	flex-wrap: wrap;
 }

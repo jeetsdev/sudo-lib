@@ -15,10 +15,6 @@
 	align-items: center;
 }
 
-.likes__video-sec {
-	background-color: green;
-}
-
 .video__cat p {
 	padding: 1rem 0;
 	font-weight: 700;

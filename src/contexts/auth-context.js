@@ -107,7 +107,9 @@ export const AuthProvider = ({ children }) => {
 					navigate("/", { replace: true });
 					toast.success(`Welcome ${createdUser?.userName}`);
 				}
-			} catch (error) {}
+			} catch (error) {
+				toast.error("Email already registered.")
+			}
 		}
 	};
 
