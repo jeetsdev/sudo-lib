@@ -29,9 +29,9 @@ export const Login = () => {
 	// To fill test data
 	const testCredentialHandler = () => {
 		setloginFormData({
+			...loginFormData,
 			email: "sudo123@gmail.com",
 			password: "sudo123",
-			passType: "password",
 		});
 	};
 
@@ -40,6 +40,20 @@ export const Login = () => {
 		return loginFormData.passType === "password"
 			? setloginFormData({ ...loginFormData, passType: "text" })
 			: setloginFormData({ ...loginFormData, passType: "password" });
+	};
+
+	// input on change handler here
+	const onChnageHandler = (event) => {
+		setloginFormData({
+			...loginFormData,
+			[event.target.name]: `${event.target.value}`,
+		});
+
+		// Setting error to null
+		setError({
+			passwordError: "",
+			emailError: "",
+		});
 	};
 
 	// Checking if alredy login
@@ -69,14 +83,10 @@ export const Login = () => {
 						type="email"
 						className="margin__lr-8px"
 						placeholder="Enter email"
+						name="email"
 						required
 						value={loginFormData.email}
-						onChange={(event) =>
-							setloginFormData({
-								...loginFormData,
-								email: `${event.target.value}`,
-							})
-						}
+						onChange={onChnageHandler}
 					/>
 					{error.emailError && (
 						<p className="validation-error txt-sml">
@@ -92,14 +102,10 @@ export const Login = () => {
 						type={loginFormData.passType}
 						className="margin__lr-8px"
 						placeholder="Enter password"
+						name="password"
 						required
 						value={loginFormData.password}
-						onChange={(event) =>
-							setloginFormData({
-								...loginFormData,
-								password: `${event.target.value}`,
-							})
-						}
+						onChange={onChnageHandler}
 					/>
 					{loginFormData.passType === "password" ? (
 						<AiFillEyeInvisible
@@ -146,9 +152,6 @@ export const Login = () => {
 						Sign up
 					</Link>
 				</p>
-				<Link to={"/forgot"} className="btns btn__link">
-					Forgot password?
-				</Link>
 			</div>
 		</div>
 	);

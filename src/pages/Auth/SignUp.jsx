@@ -17,8 +17,9 @@ export const SignUp = () => {
 	const { authToken, error, setError, signUpFormHandler } = useAuth();
 	const navigate = useNavigate();
 
-	const signupFormHandler = (event) => {
+	const signupHandler = (event) => {
 		event.preventDefault();
+		console.log('signupFormData: ', signupFormData);
 		signUpFormHandler(signupFormData);
 	};
 
@@ -27,6 +28,32 @@ export const SignUp = () => {
 		return signupFormData.passType === "password"
 			? setsignupFormData({ ...signupFormData, passType: "text" })
 			: setsignupFormData({ ...signupFormData, passType: "password" });
+	};
+
+	// dummy data handler here
+	const testCredentialHandler = () => {
+		setsignupFormData({
+			...signupFormData,
+			userName: "SudoLib",
+			email: "sudolib@gmail.com",
+			password: "SudoLib@123",
+		});
+		console.log(signupFormData);
+	};
+
+	// input on change handler here
+	const onChnageHandler = (event) => {
+		setsignupFormData({
+			...signupFormData,
+			[event.target.name]: `${event.target.value}`,
+		});
+		console.log(signupFormData);
+
+		// Setting error to null
+		setError({
+			passwordError: "",
+			emailError: "",
+		});
 	};
 
 	useEffect(() => {
@@ -44,7 +71,7 @@ export const SignUp = () => {
 		<div className="container__mid-sec center__flex flex__dir-col">
 			{/* Validation form here */}
 			<form
-				onSubmit={(event) => signupFormHandler(event)}
+				onSubmit={(event) => signupHandler(event)}
 				className="container__main-login center__flex flex__dir-col">
 				<h4 className="margin-1rem h3">Sign Up</h4>
 				<div className="margin-1rem main__login-inputs center__flex">
@@ -53,14 +80,10 @@ export const SignUp = () => {
 						type="text"
 						className="margin__lr-8px"
 						placeholder="Enter Name"
+						name="userName"
 						required
-						value={signupFormData.name}
-						onChange={(event) =>
-							setsignupFormData({
-								...signupFormData,
-								userName: `${event.target.value}`,
-							})
-						}
+						value={signupFormData.userName}
+						onChange={onChnageHandler}
 					/>
 				</div>
 				<div className="margin-1rem main__login-inputs center__flex">
@@ -69,14 +92,10 @@ export const SignUp = () => {
 						type="email"
 						className="margin__lr-8px"
 						placeholder="Enter email"
+						name="email"
 						required
 						value={signupFormData.email}
-						onChange={(event) =>
-							setsignupFormData({
-								...signupFormData,
-								email: `${event.target.value}`,
-							})
-						}
+						onChange={onChnageHandler}
 					/>
 					{error.emailError && (
 						<p className="validation-error txt-sml">
@@ -90,14 +109,10 @@ export const SignUp = () => {
 						type={signupFormData.passType}
 						className="margin__lr-8px"
 						placeholder="Enter password"
+						name="password"
 						required
 						value={signupFormData.password}
-						onChange={(event) =>
-							setsignupFormData({
-								...signupFormData,
-								password: `${event.target.value}`,
-							})
-						}
+						onChange={onChnageHandler}
 					/>
 					{signupFormData.passType === "password" ? (
 						<AiFillEyeInvisible
@@ -125,6 +140,11 @@ export const SignUp = () => {
 				<button className="btns btn__primary margin-1rem">
 					Sign Up
 				</button>
+				<p
+					className="btns btn__link margin-1rem"
+					onClick={() => testCredentialHandler()}>
+					Use test credentials
+				</p>
 			</form>
 			<div className="center__flex flex__dir-col margin-1rem">
 				<p>
