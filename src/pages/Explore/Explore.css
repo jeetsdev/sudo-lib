@@ -54,6 +54,7 @@
 	padding: 0 1rem;
 	margin-left: 220px;
 	flex-grow: 1;
+	min-height: 100vh;
 }
 
 .video__cat {
@@ -70,6 +71,10 @@
 	outline: none;
 	font-weight: 500;
 	background-color: var(--text-sec);
+}
+
+.video__cat-active {
+	background-color: var(--primary-color);
 }
 
 .video__cat-btn:hover {
