@@ -20,6 +20,16 @@ body {
 	color: var(--text-color);
 }
 
+/* Scrollbar style here */
+body::-webkit-scrollbar {
+	width: 4px;
+	background-color: var(--background-color);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--color-pri);
+}
+
 Link {
 	cursor: pointer;
 }
