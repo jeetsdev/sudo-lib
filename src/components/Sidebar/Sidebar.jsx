@@ -2,11 +2,12 @@ import {
 	AiFillClockCircle,
 	AiOutlineHistory,
 	AiOutlineLogout,
+	AiOutlineLogin,
 } from "react-icons/ai";
 import { MdExplore, MdVideoLibrary } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts";
 
 // Active link style here
@@ -34,7 +35,6 @@ const SideNavLink = ({ route, name, icon }) => {
 
 export const Sidebar = ({ menuFlag, setMenuFlag }) => {
 	const { authToken, signOutHandler } = useAuth();
-	const navigate = useNavigate();
 
 	return (
 		<div
@@ -71,23 +71,25 @@ export const Sidebar = ({ menuFlag, setMenuFlag }) => {
 
 			{/* Checking for auth here */}
 			{authToken ? (
-				<div
+				<NavLink
+					to={`/`}
 					className="sidebar__link center__flex"
 					onClick={() => signOutHandler()}>
 					<div className="link">
 						<AiOutlineLogout />
 						Logout
 					</div>
-				</div>
+				</NavLink>
 			) : (
-				<div
+				<NavLink
+					to={`/login`}
 					className="sidebar__link center__flex"
-					onClick={() => navigate("/login")}>
+					style={({ isActive }) => activeStyle(isActive)}>
 					<div className="link">
-						<AiOutlineLogout />
+						<AiOutlineLogin />
 						Login
 					</div>
-				</div>
+				</NavLink>
 			)}
 		</div>
 	);
