@@ -51,7 +51,6 @@ export const HistoryProvider = ({ children }) => {
 
 	// Add to history videos handler
 	const addToHistory = async (video) => {
-		console.log('video: ', video);
 		try {
 			const res = await axios.post(
 				"/api/user/history",

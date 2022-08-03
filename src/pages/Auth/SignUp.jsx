@@ -19,7 +19,6 @@ export const SignUp = () => {
 
 	const signupHandler = (event) => {
 		event.preventDefault();
-		console.log('signupFormData: ', signupFormData);
 		signUpFormHandler(signupFormData);
 	};
 
@@ -38,7 +37,6 @@ export const SignUp = () => {
 			email: "sudolib@gmail.com",
 			password: "SudoLib@123",
 		});
-		console.log(signupFormData);
 	};
 
 	// input on change handler here
@@ -47,7 +45,6 @@ export const SignUp = () => {
 			...signupFormData,
 			[event.target.name]: `${event.target.value}`,
 		});
-		console.log(signupFormData);
 
 		// Setting error to null
 		setError({
