@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Categories, PlaylistModal, VideoCard } from "../../components";
 import { usePlaylist, useVideo } from "../../contexts";
+import { filterVideos } from "../../utils";
 import "./Explore.css";
 
 export const Explore = () => {
@@ -14,13 +15,6 @@ export const Explore = () => {
 
 	const [filter, setFilter] = useState("All");
 
-	const filterVideos = (filter, videos) => {
-		if (filter === "All") {
-			return videos;
-		} else {
-			return videos.filter((video) => video.category === filter);
-		}
-	};
 	const finalVideosList = filterVideos(filter, videos);
 
 	return (
