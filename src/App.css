@@ -21,12 +21,14 @@ body {
 }
 
 /* Scrollbar style here */
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.nav .result__sec-item::-webkit-scrollbar {
 	width: 4px;
 	background-color: var(--background-color);
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+.nav .result__sec-item::-webkit-scrollbar-thumb {
 	background-color: var(--color-pri);
 }
 
@@ -92,6 +94,38 @@ Link {
 .nav .nav__search-sec input {
 	color: var(--text-color);
 	padding: 0.5rem 0;
+}
+
+/* Search result section */
+.nav .nav__result-sec {
+	position: fixed;
+	background-color: var(--color-transparent-secondary);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	top: 5rem;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	gap: 0.25rem;
+	box-shadow: 0 0 100px 5px var(--background-color);
+	padding: 1rem 0.5rem;
+	z-index: 99;
+	border-radius: 5px;
+}
+
+/* searched items section */
+.nav .result__sec-item {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	gap: 0.5rem;
+	background-color: var(--background-color);
+	min-width: 80%;
+	padding: 1rem;
+	border-radius: 5px;
+	overflow: auto;
+	max-height: 90%;
 }
 
 .nav .nav__button-sec {
