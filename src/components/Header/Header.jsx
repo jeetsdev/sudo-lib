@@ -16,7 +16,7 @@ export const Header = () => {
 		videoState: { videos },
 	} = useVideo();
 
-	const [foundItemFlag, setFoundItemFlag] = useState(true);
+	const [foundItemFlag, setFoundItemFlag] = useState(false);
 	const [menuFlag, setMenuFlag] = useState(true);
 	const [searchData, setSearchData] = useState("");
 	const [foundedItems, setFoundedItems] = useState(videos);
@@ -59,13 +59,13 @@ export const Header = () => {
 					{foundItemFlag && (
 						<div className="nav__result-sec">
 							<div className="result__sec-item">
-									<p className="txt-grey">
-										Search by Video title, Creator name or
-										Category...
-									</p>
-									<h3 className="h4 text-primary">
-										Founded {foundedItems?.length} videos -
-									</h3>
+								<p className="txt-grey">
+									Search by Video title, Creator name or
+									Category...
+								</p>
+								<h3 className="h4 text-primary">
+									Founded {foundedItems?.length} videos -
+								</h3>
 								{foundedItems?.map((eachVideo) => (
 									<FoundItemCard
 										video={eachVideo}
