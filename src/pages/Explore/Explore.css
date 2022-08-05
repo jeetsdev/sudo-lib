@@ -24,11 +24,6 @@
 	border-right: 2px solid var(--text-sec);
 }
 
-.sidebar__menu-active {
-	/* transform: translate(); */
-	display: flex !important;
-}
-
 .sidebar__link {
 	cursor: pointer;
 	border-radius: 5px;
