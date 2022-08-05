@@ -38,7 +38,7 @@ export const Header = () => {
 							alt="logo"
 							className="image__res logo"
 						/>
-						<h3 className="headline-3 text-heading"> Sudo-lib </h3>
+						<h3 className="headline-3 text-heading"> Sudo-Lib </h3>
 					</Link>
 				</div>
 				{/* Search section here*/}
