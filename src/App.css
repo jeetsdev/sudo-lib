@@ -121,7 +121,7 @@ Link {
 	position: relative;
 	gap: 0.5rem;
 	background-color: var(--background-color);
-	min-width: 80%;
+	min-width: 60%;
 	padding: 1rem;
 	border-radius: 5px;
 	overflow: auto;
