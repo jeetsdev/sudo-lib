@@ -1,8 +1,12 @@
 import "./App.css";
 import { Header, MyToast } from "./components";
+import { useDocumentTitle } from "./hooks/useDocumentTitle";
 import { NavigationRoutes } from "./routes/navigationRoutes";
 
 function App() {
+	// setting document title here...
+	useDocumentTitle();
+
 	return (
 		<div id="main__app">
 			<MyToast />

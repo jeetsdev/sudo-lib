@@ -3,19 +3,28 @@ import { BiLogInCircle } from "react-icons/bi";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts";
+import { useAuth, useVideo } from "../../contexts";
 import { logo } from "../../assets";
 import { Sidebar } from "../Sidebar/Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FoundItemCard } from "../Cards/FoundItemCard/FoundItemCard";
+import { searchVideos } from "../../utils";
 
 export const Header = () => {
 	const { authToken } = useAuth();
+	const {
+		videoState: { videos },
+	} = useVideo();
 
-	const menuClickHandler = () => {
-		setMenuFlag((prev) => !prev);
-	};
-
+	const [foundItemFlag, setFoundItemFlag] = useState(false);
 	const [menuFlag, setMenuFlag] = useState(true);
+	const [searchData, setSearchData] = useState("");
+	const [foundedItems, setFoundedItems] = useState(videos);
+
+	// search on every change
+	useEffect(() => {
+		setFoundedItems(searchVideos(searchData, videos));
+	}, [searchData, videos]);
 
 	return (
 		<>
@@ -29,25 +38,60 @@ export const Header = () => {
 							alt="logo"
 							className="image__res logo"
 						/>
-						<h3 className="headline-3 text-heading"> Sudo-lib </h3>
+						<h3 className="headline-3 text-heading"> Sudo-Lib </h3>
 					</Link>
 				</div>
 				{/* Search section here*/}
 				<div className="nav__search-sec">
 					<form
 						action=""
-						onSubmit={(event) => event.preventDefault()}
+						onSubmit={(e) => e.preventDefault()}
 						className="center__flex">
 						<FaSearch className="margin__lr-8px" />
-						<input type="text" placeholder="Search videos here" />
+						<input
+							type="text"
+							placeholder="Search videos here"
+							value={searchData}
+							onChange={(e) => setSearchData(e.target.value)}
+							onFocus={() => setFoundItemFlag((prev) => true)}
+						/>
 					</form>
+					{foundItemFlag && (
+						<div className="nav__result-sec">
+							<div className="result__sec-item">
+								<p className="txt-grey">
+									Search by Video title, Creator name or
+									Category...
+								</p>
+								<h3 className="h4 text-primary">
+									Founded {foundedItems?.length} videos -
+								</h3>
+								{foundedItems?.map((eachVideo) => (
+									<FoundItemCard
+										video={eachVideo}
+										key={eachVideo._id}
+										setFoundItemFlag={setFoundItemFlag}
+										setSearchData={setSearchData}
+									/>
+								))}
+							</div>
+							<button
+								className="btns btn__primary margin-1rem"
+								onClick={() => {
+									setFoundItemFlag((prev) => !prev);
+									setSearchData((prev) => "");
+								}}>
+								Close Search
+							</button>
+						</div>
+					)}
 				</div>
 				{/* Button section here*/}
 				<div className="nav__button-sec btn__flow center__flex">
 					<div
 						className="nav__menu-sec"
 						id="btn-menu"
-						onClick={menuClickHandler}>
+						onClick={() => setMenuFlag((prev) => !prev)}>
 						{menuFlag ? (
 							<IoClose className="nav__menu-icon" />
 						) : (
